@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ログインフォーム</title>
-    <script src="{{ asset('js/app.js') }}" defer>
-    </script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/signin.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer>
+    </script>
 </head>
 
 
@@ -24,9 +24,11 @@
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
-                    </ul>
-                </div>
-            @endif
+                      </ul>
+                    </div>
+                    @endif
+                    <x-alert type="danger" :session="session('login_error')"/>
+                    <x-alert type="danger" :session="session('logout')"/>
             <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
                 autofocus>
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
